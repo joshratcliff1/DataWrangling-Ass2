@@ -38,54 +38,8 @@ att7 = 'middle_name'
 test = ['marital_status', 'email', 'phone', 'middle_name']
 best_so_far = "occupation  credit_card_number  marital_status"
 
-df['salary'] = df['salary'].mask(df['salary'].between(-10000, 0))
-
-# print(df.isnull().sum(axis = 0))
-
-# Looking at Salaries
-# df[['salary']].plot.hist(bins=200)
-#
-# plt.show()
 
 
-# print(df['salary'].mean())
-#
-# print(df['salary'].median())
-
-df['salary'].fillna(85191.999, inplace=True)
-
-# print(df.isnull().sum(axis = 0))
 
 
-# Doing checks on weight
-# print(df['weight'].describe())
 
-df_weight = df.loc[df['weight'] <= 0]
-
-# print(df_weight)
-
-
-df['postcode_fd'] = df.postcode.astype(str)
-
-df['postcode_fd'] = df.postcode_fd.str[0:1]
-
-state_list = [('0','nt'),('7','tas'),('6','wa'),('5','sa'),('4','qld'),('3','vic'),('2','act')]
-
-for i in range(len(state_list)):
-    state = state_list[i][1]
-    pc_num = state_list[i][0]
-
-    df_postcode = df.loc[(df['state'].str.lower() == state) & (df['postcode_fd'] != pc_num)]
-    print(df_postcode[['postcode_fd', 'postcode', 'suburb', 'state']])
-
-# print(df[['postcode_fd','postcode']])
-
-
-# Create a csv for the merged datasets
-# df.to_csv('update_B.csv', index=False)
-
-
-"""
-List of Updates:
-A - Updated the missing salaries
-"""

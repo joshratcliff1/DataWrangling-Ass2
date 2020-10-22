@@ -31,7 +31,7 @@ df_merge = pd.merge(left=df_med, right=df_edu, left_on='ssn', right_on='ssn')
 # print(df_merge)
 
 # Create a csv for the merged datasets
-df_merge.to_csv('merge_A.csv', index=False)
+# df_merge.to_csv('merge_A.csv', index=False)
 
 
 # Pull out the records that did not have matching ssn's for both datasets
