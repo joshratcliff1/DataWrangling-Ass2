@@ -10,7 +10,7 @@ import datetime
 pd.set_option('display.width', None)
 
 # Load the dataset into the dataframe
-df = pd.read_csv("merge_FINAL.csv")
+df = pd.read_csv("FINAL_FINAL.csv")
 
 
 '''Doing checks on Salary'''
@@ -100,11 +100,11 @@ def attribute_update(row,attribute):
 attribute = "postcode"
 df[attribute] = df.apply(lambda row: attribute_update(row,attribute), axis=1)
 
-'''
+
 # Check for incorrect postcodes
 df['postcode_fd'] = df.postcode.str[0:1]
 
-state_list = [('0','nt'),('7','tas'),('6','wa'),('5','sa'),('4','qld'),('3','vic'),('2','act')]
+state_list = [('0','NT'),('7','TAS'),('6','WA'),('5','SA'),('4','QLD'),('3','VIC'),('2','ACT')]
 
 
 for i in range(len(state_list)):
@@ -113,7 +113,7 @@ for i in range(len(state_list)):
 
     df_postcode = df.loc[(df['state'].str.lower() == state) & (df['postcode_fd'] != pc_num)]
     print(df_postcode[['postcode_fd', 'postcode', 'Pcode', 'suburb', 'state']])
-'''
+
 
 # Remove columns used for checking postcodes
 del df['Pcode']
@@ -126,7 +126,7 @@ print(df)
 # print(df.describe())
 
 # Create a csv for the merged datasets
-df.to_csv('update_FINAL.csv', index=False)
+# df.to_csv('update_FINAL.csv', index=False)
 
 
 """
